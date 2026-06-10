@@ -1,7 +1,7 @@
 import torch
 
 from ai_agent.environment import TetrisEnvironment, snapshot_to_observation
-from ai_agent.policy import API_ACTIONS, PPOAgentModel, PPOPolicy
+from ai_agent.policy import API_ACTIONS, CONTROL_ACTIONS, PLAY_ACTIONS, PPOAgentModel, PPOPolicy
 from tetris.api import API_COMMANDS
 from tetris.difficulty import NORMAL
 
@@ -31,3 +31,16 @@ def test_policy_outputs_valid_api_command():
     assert decision.action in API_ACTIONS
     assert decision.action in API_COMMANDS
     assert 0 <= decision.action_index < len(API_ACTIONS)
+
+
+def test_policy_masks_non_play_control_actions():
+    env = TetrisEnvironment(piece_source_factory=source, difficulty=NORMAL)
+    policy = PPOPolicy.from_snapshot(env.snapshot())
+    with torch.no_grad():
+        policy.model.actor_head.bias.fill_(0.0)
+        policy.model.actor_head.bias[API_ACTIONS.index("restart")] = 100.0
+
+    decision = policy.act_from_snapshot(env.snapshot(), deterministic=True)
+
+    assert decision.action in PLAY_ACTIONS
+    assert decision.action not in CONTROL_ACTIONS

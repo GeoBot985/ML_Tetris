@@ -1,9 +1,9 @@
 # Training Feedback
 
-- Recent average reward: -444.09
+- Recent average reward: -408.92
 - Recent average lines cleared: 0.00
-- Recent average hole count: 44.60
-- Recent average stack height: 19.20
+- Recent average hole count: 47.80
+- Recent average stack height: 19.70
 
 ## Suggested Tweaks
 - Increase exploration pressure or reduce entropy decay; the agent is not finding clears.

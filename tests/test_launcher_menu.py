@@ -56,7 +56,7 @@ def test_build_launch_command_watch_uses_true_speed_rendering(tmp_path):
         assert "--quantize" in command
         assert "--fps-limit" in command
         assert command[command.index("--fps-limit") + 1] == "60"
-        assert "--continuous" not in command
+        assert "--continuous" in command
     finally:
         tetris_main.DEFAULT_CHECKPOINT = original_checkpoint
 
