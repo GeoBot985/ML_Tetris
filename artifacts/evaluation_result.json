@@ -1,0 +1,43 @@
+{
+  "difficulty": "normal",
+  "episodes": 5,
+  "max_steps": 300,
+  "results": [
+    {
+      "game_over_rate": 1.0,
+      "mean_lines": 0.0,
+      "mean_score": 129.2,
+      "policy": "Random",
+      "safety_correction_rate": "n/a"
+    },
+    {
+      "game_over_rate": 0.4,
+      "mean_lines": 17.4,
+      "mean_score": 3849.6,
+      "policy": "Coach (heuristic)",
+      "safety_correction_rate": "n/a"
+    },
+    {
+      "game_over_rate": 1.0,
+      "mean_lines": 0.2,
+      "mean_score": 316.4,
+      "policy": "PPO",
+      "safety_correction_rate": "n/a"
+    },
+    {
+      "game_over_rate": 1.0,
+      "mean_lines": 0.2,
+      "mean_score": 318.4,
+      "policy": "Guarded PPO",
+      "safety_correction_rate": "1.9%"
+    },
+    {
+      "game_over_rate": 1.0,
+      "mean_lines": 4.2,
+      "mean_score": 420.0,
+      "policy": "CNN Placement (imitation)",
+      "safety_correction_rate": "n/a"
+    }
+  ],
+  "seed": 1
+}

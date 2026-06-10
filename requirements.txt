@@ -1,0 +1,8 @@
+# Runtime dependencies
+pygame>=2.5
+numpy>=1.24
+torch>=2.0
+gymnasium>=0.29
+
+# Development / testing (not required to run the game)
+pytest>=7.4
